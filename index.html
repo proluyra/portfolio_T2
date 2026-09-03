@@ -2,13 +2,17 @@
     <head>
         <meta charset="UTF-8"/> <!--TAG para configuração de caracteres (acentos)-->
         <title>[Seu Nome] | Portfólio</title>
-        <link href="img/icone.png" rel="shortcut icon"/> <!--TAG para adicionar ícone na aba do navegador-->
+        <link href="https://uploads.onecompiler.io/44zhf3tt5/44zhfcbxg/icone.png" rel="shortcut icon"/> <!--TAG para adicionar ícone na aba do navegador-->
+        <link href="css/estilo.css" rel="stylesheet"/> <!--TAG para adicionar o arquivo CSS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"> <!--TAG de importação de fonte a partir do GOOGLE-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!--TAG de importação de fonte a partir do GOOGLE-->
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"><!--TAG de importação de fonte a partir do GOOGLE >> Space Grotesk e JetBrains Mono-->
     </head>
     <body>
         <header><!--Cabeçalho do conteúdo da página-->
             <nav><!--Menu-->
-                Sobre
-                Formação
+                <a href="#sobre">Sobre</a>
+                <a href="#formacao">Formação</a>
                 Cursos
                 Projetos
                 Contatos
@@ -16,25 +20,52 @@
         </header>
         <main><!--Conteúdo principal da página-->
             <section><!--Área de apresentação-->
-                <h1>[Seu nome]</h1>
+                <h1>meu-nome</h1>
                 <h3>Desenvolvedora Front-End em formação</h3>
                 <p>Estudante de Análise e Desenvolvimento de Sistemas apaixonada por transformar ideias em interfaces simples, acessíveis e bonitas. Aqui você encontra minha formação, os cursos que já fiz e projetos em que coloquei a mão no código.</p>
-                <img src="img/perfil.png"/>
+                <img src="https://uploads.onecompiler.io/44zhf3tt5/44zhfcbxg/perfil.png" width="30%"  /><!--Imagem do Perfil-->
             </section>
-
-            <section><!--Área Sobre Mim-->
-                <!-- Nesta área faça:
-                 1) Escrever um resumo
-                 2) Criar uma lista com os itens: 
-                     2.1) Sua localização, 
-                     2.2) Seu e-mail, 
-                     2.3) Seu foco para vaga,
-                     2.4) Idiomas que você fala-->
+            
+            <!--Área SOBRE MIM-->
+            <section id="sobre">
+                    sobre-mim
+                    <h2>Um pouco sobre mim</h2>
+                    <p>Quem está por trás do código.</p>
+                
+                    <p>
+                        Comecei a estudar programação por curiosidade e me encontrei no
+                        front-end: gosto de ver uma interface ganhar vida na tela e de
+                        pensar em como facilitar a vida de quem vai usar o que eu
+                        construo.
+                    </p>
+                    <p>
+                        Hoje estudo HTML, CSS e estou avançando para JavaScript,
+                        sempre buscando aprender fazendo — cada projeto novo é uma
+                        desculpa para testar algo que ainda não sei.
+                    </p>
+                    <ul>
+                        <li>localização São Paulo, SP</li>
+                        <li>e-mail email@senaisp.edu.br</li>
+                        <li>foco Front-end</li>
+                        <li>idiomas Português, Inglês, Francês e Italiano</li>
+                    </ul>
             </section>
+            
+            <!-- Área FORMAÇÃO ACADÊMICA -->
+            <section id="formacao">
+                formacao-academica
+                <h2>Formação acadêmica</h2>
+                <p>Minha trajetória de estudos até aqui.</p>
 
-            <section> <!--Área da Formação Acadêmica-->
-                <!--Nesta área coloque sua formação acadêmica. 
-                    Cada uma em um parágrafo-->
+                <p>2026 — atual</p>
+                <h3>Análise e Desenvolvimento de Sistemas</h3>
+                <p>Faculdade Tecnológica de São Paulo</p>
+                <p>Curso técnico superior com foco em desenvolvimento de software, banco de dados e programação web.</p>
+                     
+                <p>2023 — 2025</p>
+                <h3>Ensino Médio Técnico em Informática</h3>
+                <p>SENAI Vila Mariana</p>
+                <p>Primeiro contato com lógica de programação, redes e montagem de computadores.</p>
             </section>
         </main>
     </body>
