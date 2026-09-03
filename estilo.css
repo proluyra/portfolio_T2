@@ -1,0 +1,30 @@
+/*=================================
+    Variavéis de estilização
+    Paleta de Cores: #998b82 Marrom / #fca89d Rosa / #ffe1c9 Creme / #afc7b9 Verde Bebê
+*/
+:root {
+    /*Cores*/
+    --cor-fundo: #fca89d;
+    --cor-texto: #101828;
+    
+    /*Fontes*/
+    --fonte-titulo: "Space Grotesk";
+    --fonte-texto: "Tahoma";
+}
+/*=================================*/
+
+/*Configuração da rolagem da página*/
+html {
+    scroll-behavior: smooth;
+}
+
+/*ESTILIZAÇÃO DO BODY*/
+body{
+    font-family: var(--fonte-texto);
+    color: var(--cor-texto);
+    line-height: 1.5;
+}
+
+h1 {
+    color: #1a48a5;
+}
