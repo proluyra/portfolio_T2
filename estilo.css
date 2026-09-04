@@ -67,12 +67,20 @@ a {
 .menu a{
     font-size: 20px;
     padding-bottom: 4px;
+    position: relative;
 }
 .menu a::after{
     content: "";
     left: 0;
     bottom: 0;
     width: 0%;
+    height: 2px;
+    background-color: var(--cor-texto-variacao);
+    transition: width 0.25s ease;
+    position: absolute;
+}
+.menu a:hover::after{
+    width: 100%;
 }
 
 .nome {
