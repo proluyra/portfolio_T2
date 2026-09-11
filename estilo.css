@@ -8,6 +8,9 @@
     --cor-texto: #101828;
     --cor-borda: #e4e7ec;
     --cor-texto-variacao: magenta;
+    --cor-texto-suave: #667085;
+    --cor-titulo-tag: #789986;
+    --cor-primaria-clara: #afc7b9;
     
     /*Fontes*/
     --fonte-titulo: "Space Grotesk";
@@ -33,18 +36,65 @@ body{
     line-height: 1.5;
 }
 
-h1 {
-    color: #1a48a5;
-}
 /*Limpa a configuração padrão dos links*/
 a {
     text-decoration: none;
     color: inherit;
 }
 
-/*=================================
-    CABEÇALHO DA PÁGINA
-*/
+/*Estilização padrão dos títulos tipo "tag HTML" de cada seção*/
+.tag-secao{
+    display: inline-block;
+    font-family: var(--fonte-mono);
+    font-size: 26px;
+    color: var(--cor-titulo-tag);
+    background-color: rgba(15,157,139,0.1);
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+/*Estilização padrão para os CONTAINER do main*/
+.container{
+    width: 100%;
+    max-width: 1100px;
+    margin: 0;
+    padding: 0 24px;
+}
+
+/*Estilização padrão de botões*/
+.botao{
+    display: inline-block;
+    font-family: var(--fonte-texto);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 999px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.botao:hover{
+    transform: translateY(-2px); /*sobe o botão 2px quando passar o mouse*/
+}
+/*Estilo do primeiro botão*/
+.botao-primario{
+    background-color: var(--cor-titulo-tag);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(15,157,139,0.35);
+}
+.botao-primario:hover{
+    background-color: var(--cor-primaria-clara);
+}
+/*Estilo do segundo botão*/
+.botao-secundario{
+    border: 2px solid var(--cor-borda);
+    color: var(--cor-texto);
+}
+.botao-secundario:hover{
+    border-color: var(--cor-titulo-tag);
+    color: var(--cor-titulo-tag);
+}
+
+/*==============CABEÇALHO DA PÁGINA===================*/
 .cabecalho{
     position: sticky;
     background-color: rgba(245,247,250,0.85);
@@ -90,5 +140,42 @@ a {
 }
 .nome span{
     color: var(--cor-texto-variacao);
+}
+/*=================================*/
+
+/*==============APRESENTAÇÃO===================*/
+.apresentacao{
+    padding: 96px;
+    background-color: var(--cor-fundo);
+}
+.apresentacao .container{
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+}
+.apresentacao-titulo{
+    font-family: var(--fonte-titulo);
+    font-size: 45px;
+    margin-bottom: 16px;
+}
+.apresentacao-titulo .destaque{
+    color: var(--cor-titulo-tag);
+}
+.apresentacao-cargo{
+    font-family: var(--fonte-titulo);
+    color: var(--cor-texto-suave);
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.apresentacao-bio{
+    color: var(--cor-texto-suave);
+    font-size: 20px;
+    max-width: 480px;
+    margin-bottom: 20px;
+}
+.apresentacao-foto img{
+    border-radius: 24px;
+    background-color: rgba(245,247,250,0.85);
 }
 /*=================================*/
