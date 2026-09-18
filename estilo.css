@@ -1,181 +1,363 @@
-/*=================================
-    Variavéis de estilização
-    Paleta de Cores: #998b82 Marrom / #fca89d Rosa / #ffe1c9 Creme / #afc7b9 Verde Bebê
-*/
+/* --------------------------------------------------------------------------
+  VARIÁVEIS GLOBAIS
+   Define variáveis globais para estilizações que serão usadas várias vezes 
+   no código.
+-------------------------------------------------------------------------- */
 :root {
     /*Cores*/
     --cor-fundo: #fca89d;
+    --cor-fundo-alt: #ffffff;
     --cor-texto: #101828;
-    --cor-borda: #e4e7ec;
-    --cor-texto-variacao: magenta;
-    --cor-texto-suave: #667085;
-    --cor-titulo-tag: #789986;
-    --cor-primaria-clara: #afc7b9;
-    
+    --cor-primaria: #607a6b;
+    --cor-primaria-escura: #485c50;
+    --cor-texto-variacao: #486b57;
+    --cor-texto-suave: #3d4759;
+    --cor-borda: #afc7b9;
+
     /*Fontes*/
     --fonte-titulo: "Space Grotesk";
     --fonte-texto: "Tahoma";
-    --fonte-mono: "JetBrains Mono"
-}
-/*=================================*/
-/*Limpa as margens e espaçamentos da página*/
-* {
-    margin: 0;
-    padding: 0;
+    --fonte-mono: "JetBrains Mono";
+
+    /*Outros*/
+    --sombra-card: 0 8px 24px rgba(16, 24, 40, 0.08);
 }
 
-/*Configuração da rolagem da página*/
-html {
-    scroll-behavior: smooth;
+/* --------------------------------------------------------------------------
+  Classes Genéricas. Serão chamadas várias vezes na página
+-------------------------------------------------------------------------- */
+* { /*Classe que aplica para tudo dentro da página*/
+  margin: 0; /*Zera as margens da página*/
+  padding: 0; /*Zera os espaçamentos da página*/
+  box-sizing: border-box; /*Incluir padding e borda dentro da largura/altura definida para o elemento. Sem isso, os dois aumentariam o tamanho do elemento além do width definido.*/
 }
 
-/*ESTILIZAÇÃO DO BODY*/
-body{
-    font-family: var(--fonte-texto);
-    color: var(--cor-texto);
-    line-height: 1.5;
+body { /*Classe específica para o BODY da página*/
+    font-family: var(--fonte-texto); /*Fonte padrão do site todo*/
+    color: var(--cor-texto); /*Cor da fonte padrão do site todo*/
+    background-color: var(--cor-fundo);/*Cor do fundo do site todo*/
+    line-height: 1.5; /*Espaçamento entre linhas para o site todo*/
 }
 
-/*Limpa a configuração padrão dos links*/
-a {
-    text-decoration: none;
-    color: inherit;
+img { /*Classe para as imagens da página*/
+  max-width: 100%; /*Tamanho máximo da imagem. Não permite ultrapassar.*/
 }
 
-/*Estilização padrão dos títulos tipo "tag HTML" de cada seção*/
-.tag-secao{
-    display: inline-block;
-    font-family: var(--fonte-mono);
-    font-size: 26px;
-    color: var(--cor-titulo-tag);
-    background-color: rgba(15,157,139,0.1);
-    padding: 4px 12px;
-    border-radius: 6px;
-    margin-bottom: 16px;
+h1, h2, h3 { /*Classe para os títulos da página H1, H2 e H3*/
+  font-family: var(--fonte-titulo); /*Fonte padrão de todos os títulos H1, H2 e H3*/
+  line-height: 1.2; /*Espaçamento entre linhas para todos os H1, H2 e H3*/
 }
 
-/*Estilização padrão para os CONTAINER do main*/
-.container{
-    width: 100%;
-    max-width: 1100px;
-    margin: 0;
-    padding: 0 24px;
+a { /*Classe para os links da página*/
+  text-decoration: none; /*Retira decorações padrão do texto. Ex.: sublinhado*/
+  color: inherit; /*Usa a cor do elemento pai, em vez do azul padrão dos links*/
 }
 
-/*Estilização padrão de botões*/
-.botao{
-    display: inline-block;
-    font-family: var(--fonte-texto);
-    font-size: 16px;
-    font-weight: 600;
-    padding: 12px 28px;
-    border-radius: 999px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.botao:hover{
-    transform: translateY(-2px); /*sobe o botão 2px quando passar o mouse*/
-}
-/*Estilo do primeiro botão*/
-.botao-primario{
-    background-color: var(--cor-titulo-tag);
-    color: #ffffff;
-    box-shadow: 0 8px 20px rgba(15,157,139,0.35);
-}
-.botao-primario:hover{
-    background-color: var(--cor-primaria-clara);
-}
-/*Estilo do segundo botão*/
-.botao-secundario{
-    border: 2px solid var(--cor-borda);
-    color: var(--cor-texto);
-}
-.botao-secundario:hover{
-    border-color: var(--cor-titulo-tag);
-    color: var(--cor-titulo-tag);
+.container { /*Classe para estilizar de forma padronizada os DIVs "pai" da página*/
+  width: 100%; /*Tamanho*/
+  max-width: 1100px; /*Tamanho máximo em pixels*/
+  margin: 0 auto; /*Ajuste de margens nesse elemento*/
+  padding: 0 24px; /*Ajuste de espaçamento nesse elemento*/
 }
 
-/*==============CABEÇALHO DA PÁGINA===================*/
-.cabecalho{
-    position: sticky;
-    background-color: rgba(245,247,250,0.85);
-    backdrop-filter: blur(8px);
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid var(--cor-borda);
+/* Etiqueta em estilo "tag de HTML", usada como pequeno título
+   no topo de cada seção. É o elemento de assinatura do layout. */
+.tag-secao {
+  display: inline-block; /*Permite dar padding sem ocupar a linha inteira, como um <div> ocuparia*/
+  font-family: var(--fonte-mono); /*Fonte monoespaçada, títulos como tag HTML*/
+  font-size: 14px; /*Tamanho do texto dentro da etiqueta*/
+  color: var(--cor-primaria); /*Cor do texto, usando a cor de destaque do site*/
+  background-color: rgba(96,122,107, 0.1); /*Mesma cor de --cor-primaria, só que bem clara (10% de opacidade)*/
+  padding: 4px 12px; /*Espaçamento interno que dá o formato de "pílula"*/
+  border-radius: 6px; /*Arredonda os cantos*/
+  margin-bottom: 16px; /*Espaço abaixo da etiqueta, separando do título que vem em seguida*/
 }
-.cabecalho .container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100px;
+
+/* BOTÕES — dois estilos: preenchido (ação principal) e contornado (ação secundária). */
+.botao {
+  display: inline-block; /*Permite dar padding sem quebrar linha*/
+  font-family: var(--fonte-texto); /*Usa a fonte de texto padrão do site*/
+  font-size: 20px; /*Tamanho do texto do botão*/
+  font-weight: 600; /*Deixa o texto do botão em negrito*/
+  padding: 12px 28px; /*Espaçamento interno que dá o "corpo" do botão*/
+  border-radius: 999px; /*Valor bem alto força o formato de pílula, com as pontas totalmente arredondadas*/
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /*Anima suavemente a posição e a sombra no hover, em vez de mudar de forma brusca*/
+}
+
+.botao:hover {  
+  transform: translateY(-2px); /*Sobe o botão 2px ao passar o mouse, dando sensação de "flutuar"*/
+}
+
+.botao-primario {
+  background-color: var(--cor-primaria); /*Fundo com a cor de destaque do site*/
+  color: #ffffff; /*Texto branco, para contrastar com o fundo colorido*/
+  box-shadow: 0 8px 20px rgba(96,122,107, 0.35); /*Sombra na mesma cor do fundo (com transparência), reforçando o destaque*/
+}
+
+.botao-primario:hover {
+  background-color: var(--cor-primaria-escura); /*Escurece o fundo ao passar o mouse, como retorno visual do hover*/
+}
+
+.botao-secundario {
+  border: 2px solid var(--cor-borda); /*Contorno visível, já que este botão não tem fundo colorido*/
+  color: var(--cor-texto); /*Usa a cor de texto padrão do site*/
+}
+
+.botao-secundario:hover {
+  border-color: var(--cor-primaria); /*Contorno muda para a cor de destaque ao passar o mouse*/
+  color: var(--cor-primaria); /*Texto acompanha a mudança de cor do contorno*/
+}
+
+/*Estilização padrão para o título da seção*/
+.titulo-secao {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+/*Estilização padrão para o sub-título da seção*/
+.subtitulo-secao {
+  color: var(--cor-texto-suave);
+  max-width: 560px;
+  margin-bottom: 48px;
+}
+
+/* --------------------------------------------------------------------------
+   CABEÇALHO / MENU DE NAVEGAÇÃO
+   Usamos Flexbox para colocar a logo de um lado e os links do outro,
+   com alinhamento vertical centralizado.
+   -------------------------------------------------------------------------- */
+.cabecalho {
+  position: sticky; /*Mantém o cabeçalho grudado no topo ao rolar a página*/
+  top: 0; /*Distância do topo em que o cabeçalho "gruda"*/
+  z-index: 100; /*Garante que o cabeçalho fique por cima do conteúdo que passa por baixo dele*/
+  background-color: rgba(245, 247, 250, 0.85); /*Fundo quase branco, com transparência para o efeito de vidro fosco*/
+  backdrop-filter: blur(8px); /*Desfoca o conteúdo que aparece atrás do cabeçalho ao rolar*/
+  border-bottom: 1px solid var(--cor-borda); /*Linha fina separando o cabeçalho do restante da página*/
+}
+
+.cabecalho .container {
+  display: flex; /*Alinha a logo e o menu lado a lado, na horizontal*/
+  align-items: center; /*Centraliza os itens verticalmente dentro do cabeçalho*/
+  justify-content: space-between; /*Empurra a logo para a esquerda e o menu para a direita*/
+  height: 100px; /*Altura fixa do cabeçalho*/
+}
+
+.logo {
+  font-family: var(--fonte-mono); /*Fonte monoespaçada, reforçando a estética de código*/
+  font-weight: bold; /*Deixa o texto da logo em negrito*/
+  font-size: 28px; /*Tamanho do texto da logo*/
+}
+
+.logo span {
+  color: var(--cor-texto-variacao); /*Cor de destaque aplicada só à parte da logo dentro do <span>*/
 }
 
 .menu {
-    display: flex;
-    gap: 32px;
-}
-.menu a{
-    font-size: 20px;
-    padding-bottom: 4px;
-    position: relative;
-}
-.menu a::after{
-    content: "";
-    left: 0;
-    bottom: 0;
-    width: 0%;
-    height: 2px;
-    background-color: var(--cor-texto-variacao);
-    transition: width 0.25s ease;
-    position: absolute;
-}
-.menu a:hover::after{
-    width: 100%;
+  display: flex; /*Alinha os links do menu lado a lado, na horizontal*/
+  gap: 32px; /*Espaço fixo entre os links*/
 }
 
-.nome {
-    font-family: var(--fonte-mono);
-    font-size: 28px;
-    font-weight: bold;
+.menu a {
+  font-size: 24px; /*Tamanho do texto dos links do menu*/
+  position: relative; /*Ponto de referência para o ::after se posicionar*/
+  padding-bottom: 4px; /*Espaço abaixo do texto, onde o sublinhado animado vai aparecer*/
 }
-.nome span{
-    color: var(--cor-texto-variacao);
-}
-/*=================================*/
 
-/*==============APRESENTAÇÃO===================*/
-.apresentacao{
-    padding: 96px;
-    background-color: var(--cor-fundo);
+/* Sublinhado animado ao passar o mouse: começa com largura 0
+   e cresce até 100% usando transition. */
+.menu a::after {
+  content: ""; /*Cria um elemento vazio, usado só para desenhar o sublinhado*/
+  position: absolute; /*Posiciona em relação ao <a> pai, graças ao position: relative acima*/
+  left: 0; /*Alinha à esquerda do link*/
+  bottom: 0; /*Encosta na base do link, logo abaixo do texto*/
+  width: 0%; /*Começa com largura zero — ou seja, invisível*/
+  height: 2px; /*Espessura da linha do sublinhado*/
+  background-color: var(--cor-texto); /*Cor do sublinhado*/
+  transition: width 0.25s ease; /*Anima a largura suavemente, criando o efeito de "crescer"*/
 }
-.apresentacao .container{
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 48px;
-    align-items: center;
+
+.menu a:hover::after {
+  width: 100%; /*No hover, a largura cresce até 100%, revelando o sublinhado inteiro*/
 }
-.apresentacao-titulo{
-    font-family: var(--fonte-titulo);
-    font-size: 45px;
-    margin-bottom: 16px;
+
+/* --------------------------------------------------------------------------
+   APRESENTAÇÃO
+   Grid de 2 colunas: texto de um lado, foto do outro.
+   -------------------------------------------------------------------------- */
+.apresentacao {
+  padding: 96px 0; /*Espaço interno acima e abaixo da seção de apresentação*/
 }
-.apresentacao-titulo .destaque{
-    color: var(--cor-titulo-tag);
+
+.apresentacao .container {
+  display: grid; /*Organiza o conteúdo da seção em colunas*/
+  grid-template-columns: 1.1fr 0.9fr; /*Duas colunas: texto um pouco mais larga que a da foto*/
+  gap: 48px; /*Espaço entre as duas colunas*/
+  align-items: center; /*Centraliza o conteúdo verticalmente dentro do grid*/
 }
-.apresentacao-cargo{
-    font-family: var(--fonte-titulo);
-    color: var(--cor-texto-suave);
-    font-size: 20px;
-    margin-bottom: 20px;
+
+.apresentacao-titulo {
+  font-size: 80px; /*Tamanho do texto do título de apresentação*/
+  margin-bottom: 16px; /*Espaço abaixo do título*/
 }
-.apresentacao-bio{
-    color: var(--cor-texto-suave);
-    font-size: 20px;
-    max-width: 480px;
-    margin-bottom: 20px;
+
+.apresentacao-titulo .destaque {
+  color: var(--cor-primaria); /*Aplica a cor de destaque a uma palavra específica dentro do título*/
 }
-.apresentacao-foto img{
-    border-radius: 24px;
-    background-color: rgba(245,247,250,0.85);
+
+.apresentacao-cargo {
+  font-family: var(--fonte-mono); /*Fonte monoespaçada, reforçando a estética de código*/
+  color: var(--cor-texto-suave); /*Cor suave, de menor contraste que o título*/
+  font-size: 20px; /*Tamanho do texto do cargo/profissão*/
+  margin-bottom: 20px; /*Espaço abaixo do texto de cargo*/
 }
-/*=================================*/
+
+.apresentacao-bio {
+  color: var(--cor-texto-suave); /*Mesma cor suave usada no cargo*/
+  font-size: 24px; /*Tamanho do texto da biografia*/
+  max-width: 480px; /*Limita a largura do texto, para não esticar demais em telas largas*/
+  margin-bottom: 32px; /*Espaço abaixo da biografia*/
+}
+
+.apresentacao-botoes {
+  display: flex; /*Alinha os dois botões lado a lado, na horizontal*/
+  gap: 16px; /*Espaço fixo entre os botões*/
+  flex-wrap: wrap; /*Se não couberem lado a lado, o segundo botão desce para a linha de baixo em vez de espremer*/
+}
+
+.apresentacao-foto {
+  width: 70%; /*Encolhe a foto para não ocupar 100% da coluna do grid*/
+}
+
+.apresentacao-foto img {
+  border-radius: 24px; /*Arredonda os cantos da imagem*/
+  box-shadow: var(--sombra-card); /*Sombra padrão do site, dando profundidade à foto*/
+  background-color: rgba(245, 247, 250, 0.85); /*Fundo por trás da imagem, para o PNG não "puxar" a cor do fundo da seção*/
+}
+
+/* --------------------------------------------------------------------------
+  SOBRE MIM
+   Grid de 2 colunas: texto + lista de informações rápidas.
+-------------------------------------------------------------------------- */
+.sobre {
+  padding: 96px 0; /*Espaço interno acima e abaixo da seção*/
+  background-color: var(--cor-fundo-alt); /*Fundo branco, destacando esta seção do resto da página*/
+}
+
+.sobre .container > .tag-secao, /*Quando coloca > .tag-secao, estou dizendo que somente o .tag-secao que está dentro de .sobre e .container vai receber a classe abaixo. Os outros não recebem.*/
+.sobre .container > .titulo-secao,
+.sobre .container > .subtitulo-secao {
+  text-align: left; /*Garante alinhamento à esquerda, mesmo que algo mude o padrão no futuro*/
+}
+
+.sobre-grid {
+  display: grid; /*Organiza o conteúdo da seção em colunas*/
+  grid-template-columns: 1.3fr 0.7fr; /*Duas colunas: texto mais larga que a lista de informações*/
+  gap: 48px; /*Espaço entre as duas colunas*/
+}
+
+.sobre-texto p {
+  margin-bottom: 16px; /*Espaço entre os parágrafos do texto*/
+  color: var(--cor-texto-suave); /*Cor de menor contraste, para o texto corrido*/
+  font-size: 18px;
+}
+
+.info-rapida {
+  background-color: var(--cor-fundo); /*Fundo do cartão de informações rápidas*/
+  border-radius: 16px; /*Arredonda os cantos do cartão*/
+  padding: 32px; /*Espaçamento interno do cartão*/
+}
+
+.info-rapida li {
+  display: flex; /*Alinha o rótulo e o valor lado a lado*/
+  justify-content: space-between; /*Empurra o rótulo para a esquerda e o valor para a direita*/
+  padding: 12px 0; /*Espaço acima de cada linha*/
+  border-bottom: 1px solid var(--cor-borda); /*Linha fina separando cada item da lista*/
+  font-size: 18px; /*Tamanho do texto de cada item*/
+}
+
+.info-rapida li:last-child {
+  border-bottom: none; /*Remove a linha do último item, para não sobrar uma borda solta no final*/
+}
+
+.info-rapida .rotulo {
+  color: var(--cor-texto-suave); /*Cor suave, diferenciando o rótulo do valor*/
+  font-family: var(--fonte-mono); /*Fonte monoespaçada, reforçando a estética de código*/
+  font-size: 16px; /*Tamanho do texto do rótulo, menor que o valor*/
+}
+/* --------------------------------------------------------------------------
+   FORMAÇÃO ACADÊMICA 
+   -------------------------------------------------------------------------- */
+.formacao {
+  padding: 96px 0; /*Espaço interno acima da seção*/
+}
+
+.linha-tempo {
+  padding-left: 22px; /*Espaço padrão de uma lista, só o suficiente pro marcador aparecer*/
+}
+
+.item-tempo {
+  margin-bottom: 28px; /*Espaço entre um item da formação e o próximo*/
+}
+
+.item-tempo::marker {
+  color: var(--cor-primaria); /*Pinta o marcador que a lista já desenha sozinha, na cor de destaque do site*/
+  font-size: 28px; /*Deixa o marcador um pouco maior, sem precisar mexer no tamanho do texto*/
+}
+
+.periodo {
+  font-family: var(--fonte-mono); /*Fonte monoespaçada, reforçando a estética de código*/
+  font-size: 13px; /*Tamanho do texto do período*/
+  color: var(--cor-primaria); /*Cor de destaque, chamando atenção pra data*/
+  margin-bottom: 4px; /*Espaço abaixo da data*/
+}
+/* --------------------------------------------------------------------------
+   CURSOS
+   Grid responsivo: o navegador decide sozinho quantas colunas cabem,
+   com auto-fit + minmax. Chamado de grid "inteligente".
+   -------------------------------------------------------------------------- */
+.cursos {
+  padding: 96px 0; /*Espaço interno acima da seção*/
+  background-color: var(--cor-fundo-alt); /*Fundo branco, mesma lógica usada em "sobre"*/
+}
+
+.cursos-grid {
+  display: grid; /*Organiza os cursos em grade*/
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /*Cria quantas colunas de ~240px couberem na tela*/
+  gap: 24px; /*Espaço entre os cartões*/
+}
+
+.curso-card {
+  background-color: var(--cor-fundo); /*Fundo salmão do cartão, contrastando com o branco da seção*/
+  border-radius: 16px; /*Arredonda os cantos do cartão*/
+  padding: 28px; /*Espaçamento interno do cartão*/
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /*Anima suavemente a posição e a sombra no hover*/
+}
+
+.curso-card:hover {
+  transform: translateY(-4px); /*Sobe o cartão 4px ao passar o mouse*/
+  box-shadow: var(--sombra-card); /*Adiciona sombra só no hover, dando sensação de profundidade*/
+}
+
+.curso-icone {
+  font-size: 1.6rem; /*Tamanho do emoji/ícone do curso*/
+  margin-bottom: 16px; /*Espaço abaixo do ícone*/
+}
+
+.curso-card h3 {
+  font-size: 16px; /*Tamanho do nome do curso*/
+  margin-bottom: 6px; /*Espaço abaixo do título*/
+}
+
+.curso-card p {
+  color: var(--cor-texto-suave); /*Cor suave para a descrição do curso*/
+  font-size: 14px; /*Tamanho do texto da descrição*/
+  margin-bottom: 16px; /*Espaço abaixo da descrição*/
+}
+
+.curso-carga {
+  font-family: var(--fonte-mono); /*Fonte monoespaçada, reforçando a estética de código*/
+  font-size: 14px; /*Tamanho do texto da carga horária*/
+  color: var(--cor-primaria); /*Cor de destaque*/
+  background-color: rgba(15, 157, 139, 0.1); /*Fundo claro atrás do texto*/
+  padding: 4px 10px; /*Espaçamento interno, formato de pílula*/
+  border-radius: 6px; /*Arredonda os cantos da etiqueta*/
+}
