@@ -23,66 +23,126 @@
                 </nav>
             </div>
         </header>
-        <main><!--Conteúdo principal da página-->
-            <section class="apresentacao"><!--Área de apresentação-->
+        <main>
+            <!--Área de apresentação-->
+            <section class="apresentacao">
                 <div class="container">
                     <div class="apresentacao-texto">
-                        <span class="tag-secao">&lt;ola-mundo/&gt;</span>
+                        <span class="tag-secao">&lt;ola-mundo&gt;</span>
                         <h1 class="apresentacao-titulo">Nome <span class="destaque">Sobrenome</span></h1>
-                        <h3 class="apresentacao-cargo">Desenvolvedora Front-End em formação</h3>
-                        <p class="apresentacao-bio">Estudante de Análise e Desenvolvimento de Sistemas apaixonada por transformar ideias em interfaces simples, acessíveis e bonitas. Aqui você encontra minha formação, os cursos que já fiz e projetos em que coloquei a mão no código.</p>
-                        
+                        <p class="apresentacao-cargo">Desenvolvedora Front-end em formação</p>
+                        <p class="apresentacao-bio">
+                        Estudante de Análise e Desenvolvimento de Sistemas apaixonada por
+                        transformar ideias em interfaces simples, acessíveis e bonitas.
+                        Aqui você encontra minha formação, os cursos que já fiz e os
+                        projetos em que coloquei a mão no código.
+                        </p>
                         <div class="apresentacao-botoes">
-                            <a href="#" class="botao botao-primario">Ver projetos</a>
-                            <a href="#" class="botao botao-secundario">Fale comigo</a>
+                        <a href="#projetos" class="botao botao-primario">Ver projetos</a>
+                        <a href="#contato" class="botao botao-secundario">Fale comigo</a>
                         </div>
                     </div>
+
                     <div class="apresentacao-foto">
-                        <img src="https://uploads.onecompiler.io/44zhf3tt5/44zhfcbxg/perfil.png" width="70%"  /><!--Imagem do Perfil-->
+                        <img src="img/perfil.png" alt="Olá! Bem vindo ao meu portfólio.">
                     </div>
                 </div>
             </section>
             
-            <!--Área SOBRE MIM-->
-            <section id="sobre">
-                    sobre-mim
-                    <h2>Um pouco sobre mim</h2>
-                    <p>Quem está por trás do código.</p>
-                
-                    <p>
-                        Comecei a estudar programação por curiosidade e me encontrei no
-                        front-end: gosto de ver uma interface ganhar vida na tela e de
-                        pensar em como facilitar a vida de quem vai usar o que eu
-                        construo.
-                    </p>
-                    <p>
-                        Hoje estudo HTML, CSS e estou avançando para JavaScript,
-                        sempre buscando aprender fazendo — cada projeto novo é uma
-                        desculpa para testar algo que ainda não sei.
-                    </p>
-                    <ul>
-                        <li>localização São Paulo, SP</li>
-                        <li>e-mail email@senaisp.edu.br</li>
-                        <li>foco Front-end</li>
-                        <li>idiomas Português, Inglês, Francês e Italiano</li>
-                    </ul>
-            </section>
-            
-            <!-- Área FORMAÇÃO ACADÊMICA -->
-            <section id="formacao">
-                formacao-academica
-                <h2>Formação acadêmica</h2>
-                <p>Minha trajetória de estudos até aqui.</p>
+            <!-- ======================= SOBRE MIM ======================= -->
+            <section class="sobre" id="sobre">
+                <div class="container">
+                    <span class="tag-secao">&lt;sobre-mim&gt;</span>
+                    <h2 class="titulo-secao">Um pouco sobre mim</h2>
+                    <p class="subtitulo-secao">Quem está por trás do código.</p>
 
-                <p>2026 — atual</p>
-                <h3>Análise e Desenvolvimento de Sistemas</h3>
-                <p>Faculdade Tecnológica de São Paulo</p>
-                <p>Curso técnico superior com foco em desenvolvimento de software, banco de dados e programação web.</p>
-                     
-                <p>2023 — 2025</p>
-                <h3>Ensino Médio Técnico em Informática</h3>
-                <p>SENAI Vila Mariana</p>
-                <p>Primeiro contato com lógica de programação, redes e montagem de computadores.</p>
+                    <div class="sobre-grid">
+                        <div class="sobre-texto">
+                            <p>
+                                Comecei a estudar programação por curiosidade e me encontrei no
+                                front-end: gosto de ver uma interface ganhar vida na tela e de
+                                pensar em como facilitar a vida de quem vai usar o que eu
+                                construo.
+                            </p>
+                            <p>
+                                Hoje estudo HTML, CSS e estou avançando para JavaScript,
+                                sempre buscando aprender fazendo — cada projeto novo é uma
+                                desculpa para testar algo que ainda não sei.
+                            </p>
+                        </div>
+
+                        <ul class="info-rapida">
+                            <li><span class="rotulo">localização</span> São Paulo, SP</li>
+                            <li><span class="rotulo">e-mail</span> email@senaisp.edu.br</li>
+                            <li><span class="rotulo">foco</span> Front-end</li>
+                            <li><span class="rotulo">idiomas</span> Russo, Mandarim, Japonês</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= FORMAÇÃO ACADÊMICA ======================= -->
+            <section class="formacao" id="formacao">
+                <div class="container">
+                    <span class="tag-secao">&lt;formacao-academica&gt;</span>
+                    <h2 class="titulo-secao">Formação acadêmica</h2>
+                    <p class="subtitulo-secao">Minha trajetória de estudos até aqui.</p>
+
+                    <ul class="linha-tempo">
+                        <li class="item-tempo">
+                            <p class="periodo">2024 — atual</p>
+                            <h3>Análise e Desenvolvimento de Sistemas</h3>
+                            <p class="instituicao">Faculdade Tecnológica de São Paulo</p>
+                            <p>Curso técnico superior com foco em desenvolvimento de software, banco de dados e programação web.</p>
+                        </li>
+
+                        <li class="item-tempo">
+                            <p class="periodo">2021 — 2023</p>
+                            <h3>Ensino Médio Técnico em Informática</h3>
+                            <p class="instituicao">SENAI Vila Mariana</p>
+                            <p>Primeiro contato com lógica de programação, redes e montagem de computadores.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ======================= CURSOS ======================= -->
+            <section class="cursos" id="cursos">
+                <div class="container">
+                    <span class="tag-secao">&lt;cursos-e-certificados&gt;</span>
+                    <h2 class="titulo-secao">Cursos e certificados</h2>
+                    <p class="subtitulo-secao">O que venho estudando por conta própria.</p>
+
+                    <div class="cursos-grid">
+                        <div class="curso-card">
+                            <div class="curso-icone">🌐</div>
+                            <h3>HTML5 e CSS3 na prática</h3>
+                            <p>Fundamentos de estruturação e estilização de páginas web.</p>
+                            <span class="curso-carga">40h</span>
+                        </div>
+
+                        <div class="curso-card">
+                            <div class="curso-icone">📱</div>
+                            <h3>Design Responsivo</h3>
+                            <p>Layouts que se adaptam a celulares, tablets e desktops.</p>
+                            <span class="curso-carga">20h</span>
+                        </div>
+
+                        <div class="curso-card">
+                            <div class="curso-icone">🔧</div>
+                            <h3>Git e GitHub</h3>
+                            <p>Controle de versão e colaboração em projetos de código.</p>
+                            <span class="curso-carga">15h</span>
+                        </div>
+
+                        <div class="curso-card">
+                            <div class="curso-icone">⚡</div>
+                            <h3>Introdução ao JavaScript</h3>
+                            <p>Primeiros passos em lógica de programação para a web.</p>
+                            <span class="curso-carga">30h</span>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     </body>
